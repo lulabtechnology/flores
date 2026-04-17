@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ivory: #fffaf3;
+  --blush: #f7cdd8;
+  --rose: #d98aa0;
+  --sage: #9caf88;
+  --gold: #c4a05f;
+  --wine: #7a2941;
+  --cocoa: #5d453a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--cocoa);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Los títulos usan una fuente serif común para dar sensación editorial y elegante. */
+.font-editorial {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Esta clase crea un borde dorado suave para detalles premium. */
+.gold-line {
+  background: linear-gradient(90deg, transparent, rgba(196, 160, 95, 0.9), transparent);
+}
+
+/* Pétalos decorativos hechos solo con CSS. No son imágenes externas. */
+.petal {
+  width: 16px;
+  height: 26px;
+  border-radius: 999px 999px 999px 0;
+  background: linear-gradient(145deg, #f7cdd8, #d98aa0);
+  opacity: 0.55;
+  filter: blur(0.2px);
+}
+
+/* Hace que las imágenes se vean suaves y premium. */
+.image-soft {
+  filter: saturate(1.06) contrast(1.02);
+}
+
+/* Evita que el contenido quede escondido detrás del header fijo al navegar por anclas. */
+section {
+  scroll-margin-top: 96px;
+}
