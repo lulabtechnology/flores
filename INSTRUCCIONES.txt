@@ -1,0 +1,22 @@
+CAMBIOS INCLUIDOS EN ESTA CORRECCIÓN
+
+1. Se mejoró el hero para celular.
+   - Ahora en móvil se ve primero la foto principal, como gustó visualmente.
+   - La tarjeta de texto ya no se siente cortada.
+   - La frase “Amornflor… la arquitectura de lo efímero” queda mejor acomodada.
+   - Se mantuvieron los mismos colores, estilo premium y pétalos decorativos.
+
+2. Se ajustó el header para celular.
+   - El logo y el nombre ahora aprovechan mejor el espacio.
+   - “Floristería boutique” ya no se corta tan fácil.
+   - El botón Menú sigue igual, pero el bloque quedó más balanceado.
+
+ARCHIVOS MODIFICADOS
+- components/Header.tsx
+- components/Hero.tsx
+- app/globals.css
+
+QUÉ HACER
+- Reemplaza esos archivos en tu proyecto.
+- Sube los cambios a GitHub.
+- Vuelve a desplegar en Vercel.

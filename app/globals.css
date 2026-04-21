@@ -67,3 +67,10 @@ img {
 section {
   scroll-margin-top: 96px;
 }
+
+/* En celular damos un poco más de margen porque el header ocupa más altura. */
+@media (max-width: 767px) {
+  section {
+    scroll-margin-top: 116px;
+  }
+}

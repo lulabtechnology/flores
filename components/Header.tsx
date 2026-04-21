@@ -21,12 +21,16 @@ export default function Header() {
   );
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full px-4 py-4 sm:px-6">
+    <header className="fixed left-0 top-0 z-50 w-full px-3 py-3 sm:px-6 sm:py-4">
       {/* Esta caja blanca hace que el menú se vea limpio sobre cualquier fondo. */}
-      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-[1.8rem] border border-white/70 bg-white/85 px-4 py-3 shadow-soft backdrop-blur-xl sm:px-6">
-        <a href="#inicio" className="flex min-w-0 items-center gap-3" aria-label="Ir al inicio">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-[1.8rem] border border-white/70 bg-white/85 px-3 py-3 shadow-soft backdrop-blur-xl sm:px-6">
+        <a
+          href="#inicio"
+          className="flex min-w-0 max-w-[calc(100%-112px)] items-center gap-3 sm:max-w-none"
+          aria-label="Ir al inicio"
+        >
           {/* Este es el logo oficial de AMORNFLOR. */}
-          <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-goldSoft/40 bg-white shadow-sm">
+          <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-goldSoft/40 bg-white shadow-sm sm:h-14 sm:w-14">
             <Image
               src="/images/logo/amornflor-logo.jpg"
               alt="Logo AMORNFLOR"
@@ -35,9 +39,13 @@ export default function Header() {
               priority
             />
           </span>
+
+          {/* En celular el texto usa mejor el espacio para que no se corte. */}
           <span className="min-w-0 leading-tight">
-            <span className="block truncate font-editorial text-lg tracking-[0.16em] text-wine sm:text-xl">AMORNFLOR</span>
-            <span className="block truncate text-[11px] uppercase tracking-[0.22em] text-cocoa/55 sm:text-xs">
+            <span className="block text-[0.95rem] tracking-[0.16em] text-wine sm:text-xl font-editorial">
+              AMORNFLOR
+            </span>
+            <span className="block text-[10px] uppercase tracking-[0.18em] text-cocoa/55 sm:text-xs sm:tracking-[0.22em]">
               Floristería boutique
             </span>
           </span>
@@ -65,7 +73,7 @@ export default function Header() {
         {/* Botón para abrir el menú en celular. */}
         <button
           onClick={() => setOpen((value) => !value)}
-          className="shrink-0 rounded-full border border-goldSoft/30 px-4 py-2 text-sm font-semibold text-wine lg:hidden"
+          className="shrink-0 rounded-full border border-goldSoft/30 px-4 py-2 text-sm font-semibold text-wine sm:px-5"
           aria-label="Abrir menú"
         >
           Menú
