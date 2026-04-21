@@ -25,11 +25,22 @@ body {
   background: var(--ivory);
   color: var(--cocoa);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Los títulos usan una fuente serif común para dar sensación editorial y elegante. */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Los títulos usan una fuente serif refinada para dar sensación editorial y elegante. */
 .font-editorial {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+}
+
+/* Esta fuente cursiva se usa para nombres de arreglos y detalles delicados. */
+.font-script {
+  font-family: "Snell Roundhand", "Brush Script MT", "Segoe Script", cursive;
 }
 
 /* Esta clase crea un borde dorado suave para detalles premium. */

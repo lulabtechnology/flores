@@ -46,7 +46,7 @@ export default function ContactForm() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.65 }}
-          className="relative min-h-[540px] overflow-hidden rounded-[2.4rem] shadow-floral"
+          className="relative min-h-[360px] overflow-hidden rounded-[2rem] shadow-floral sm:min-h-[460px] lg:min-h-[540px]"
         >
           {/* Imagen de apoyo para que la sección de contacto no se vea vacía. */}
           <Image
@@ -56,8 +56,8 @@ export default function ContactForm() {
             className="image-soft object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-wine/75 via-wine/10 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-            <p className="font-editorial text-4xl leading-tight">Diseños para regalar, celebrar y emocionar.</p>
+          <div className="absolute bottom-0 left-0 right-0 p-6 text-white sm:p-8">
+            <p className="font-editorial text-3xl leading-tight sm:text-4xl">Diseños para regalar, celebrar y emocionar.</p>
             <p className="mt-4 max-w-md text-sm leading-7 text-white/80">
               Completa tus datos y el formulario abrirá WhatsApp con tu solicitud lista.
             </p>
@@ -69,7 +69,7 @@ export default function ContactForm() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.65 }}
-          className="rounded-[2.4rem] border border-goldSoft/20 bg-ivory p-6 shadow-soft sm:p-9"
+          className="rounded-[2rem] border border-goldSoft/20 bg-ivory p-6 shadow-soft sm:p-9"
         >
           {/* Este formulario envía la información por WhatsApp. */}
           <p className="text-sm font-semibold uppercase tracking-[0.34em] text-goldSoft">Contacto</p>

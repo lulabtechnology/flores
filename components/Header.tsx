@@ -23,10 +23,10 @@ export default function Header() {
   return (
     <header className="fixed left-0 top-0 z-50 w-full px-4 py-4 sm:px-6">
       {/* Esta caja blanca hace que el menú se vea limpio sobre cualquier fondo. */}
-      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/70 bg-white/80 px-4 py-3 shadow-soft backdrop-blur-xl sm:px-6">
-        <a href="#inicio" className="flex items-center gap-3" aria-label="Ir al inicio">
+      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-[1.8rem] border border-white/70 bg-white/85 px-4 py-3 shadow-soft backdrop-blur-xl sm:px-6">
+        <a href="#inicio" className="flex min-w-0 items-center gap-3" aria-label="Ir al inicio">
           {/* Este es el logo oficial de AMORNFLOR. */}
-          <span className="relative h-12 w-12 overflow-hidden rounded-full border border-goldSoft/40 bg-white shadow-sm">
+          <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-goldSoft/40 bg-white shadow-sm">
             <Image
               src="/images/logo/amornflor-logo.jpg"
               alt="Logo AMORNFLOR"
@@ -35,14 +35,16 @@ export default function Header() {
               priority
             />
           </span>
-          <span className="leading-tight">
-            <span className="block font-editorial text-xl tracking-[0.18em] text-wine">AMORNFLOR</span>
-            <span className="hidden text-xs uppercase tracking-[0.28em] text-cocoa/55 sm:block">by Janet</span>
+          <span className="min-w-0 leading-tight">
+            <span className="block truncate font-editorial text-lg tracking-[0.16em] text-wine sm:text-xl">AMORNFLOR</span>
+            <span className="block truncate text-[11px] uppercase tracking-[0.22em] text-cocoa/55 sm:text-xs">
+              Floristería boutique
+            </span>
           </span>
         </a>
 
         {/* Menú de escritorio. */}
-        <nav className="hidden items-center gap-7 text-sm font-medium text-cocoa/75 lg:flex">
+        <nav className="hidden items-center gap-6 text-sm font-medium text-cocoa/75 lg:flex">
           {menuItems.map((item) => (
             <a key={item.href} href={item.href} className="transition hover:text-wine">
               {item.label}
@@ -63,7 +65,7 @@ export default function Header() {
         {/* Botón para abrir el menú en celular. */}
         <button
           onClick={() => setOpen((value) => !value)}
-          className="rounded-full border border-goldSoft/30 px-4 py-2 text-sm font-semibold text-wine lg:hidden"
+          className="shrink-0 rounded-full border border-goldSoft/30 px-4 py-2 text-sm font-semibold text-wine lg:hidden"
           aria-label="Abrir menú"
         >
           Menú

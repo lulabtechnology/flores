@@ -45,7 +45,7 @@ export default function Footer() {
               </span>
               <div>
                 <p className="font-editorial text-2xl tracking-[0.18em]">AMORNFLOR</p>
-                <p className="text-xs uppercase tracking-[0.28em] text-white/60">by Janet</p>
+                <p className="font-script text-3xl leading-none text-blush">Floristería boutique</p>
               </div>
             </div>
             <p className="mt-5 max-w-md text-sm leading-7 text-white/70">
@@ -56,9 +56,11 @@ export default function Footer() {
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.24em] text-white/65">Contacto</p>
             <a href={whatsappLink} target="_blank" rel="noreferrer" className="mt-4 block text-white/80 transition hover:text-white">
-              WhatsApp: +507 6059-8292
+              WhatsApp: (507) 6059 8292
             </a>
             <p className="mt-3 text-white/80">Instagram: {INSTAGRAM_HANDLE}</p>
+            <p className="mt-3 text-white/80">Sitio web: xxxxxxxxxxx</p>
+            <p className="mt-3 text-white/80">Colón, República de Panamá</p>
           </div>
 
           <div>
