@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 
@@ -21,12 +22,14 @@ export default function Header() {
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full px-3 py-3 sm:px-6 sm:py-4">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-[1.8rem] border border-white/70 bg-white/88 px-3 py-3 shadow-soft backdrop-blur-xl sm:px-6">
+      {/* Esta caja blanca hace que el menú se vea limpio sobre cualquier fondo. */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-[1.8rem] border border-white/70 bg-white/85 px-3 py-3 shadow-soft backdrop-blur-xl sm:px-6">
         <a
           href="#inicio"
           className="flex min-w-0 max-w-[calc(100%-112px)] items-center gap-3 sm:max-w-none"
           aria-label="Ir al inicio"
         >
+          {/* Este es el logo oficial de AMORNFLOR. */}
           <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-goldSoft/40 bg-white shadow-sm sm:h-14 sm:w-14">
             <Image
               src="/images/logo/amornflor-logo.jpg"
@@ -37,8 +40,9 @@ export default function Header() {
             />
           </span>
 
+          {/* En celular el texto usa mejor el espacio para que no se corte. */}
           <span className="min-w-0 leading-tight">
-            <span className="block font-editorial text-[0.95rem] tracking-[0.16em] text-wine sm:text-xl">
+            <span className="block text-[0.95rem] tracking-[0.16em] text-wine sm:text-xl font-editorial">
               AMORNFLOR
             </span>
             <span className="block text-[10px] uppercase tracking-[0.18em] text-cocoa/55 sm:text-xs sm:tracking-[0.22em]">
@@ -47,6 +51,7 @@ export default function Header() {
           </span>
         </a>
 
+        {/* Menú de escritorio. */}
         <nav className="hidden items-center gap-6 text-sm font-medium text-cocoa/75 lg:flex">
           {menuItems.map((item) => (
             <a key={item.href} href={item.href} className="transition hover:text-wine">
@@ -55,6 +60,7 @@ export default function Header() {
           ))}
         </nav>
 
+        {/* Botón principal de contacto para escritorio. */}
         <a
           href={whatsappLink}
           target="_blank"
@@ -64,6 +70,7 @@ export default function Header() {
           Cotizar por WhatsApp
         </a>
 
+        {/* Botón para abrir el menú en celular. */}
         <button
           onClick={() => setOpen((value) => !value)}
           className="shrink-0 rounded-full border border-goldSoft/30 px-4 py-2 text-sm font-semibold text-wine sm:px-5"
@@ -73,30 +80,38 @@ export default function Header() {
         </button>
       </div>
 
-      {open ? (
-        <div className="fade-in-section mx-auto mt-3 max-w-7xl rounded-3xl border border-white/70 bg-white/95 p-4 shadow-floral backdrop-blur-xl lg:hidden">
-          <nav className="grid gap-2">
-            {menuItems.map((item) => (
+      {/* Menú móvil. Aparece solo cuando la persona toca el botón Menú. */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="mx-auto mt-3 max-w-7xl rounded-3xl border border-white/70 bg-white/95 p-4 shadow-floral backdrop-blur-xl lg:hidden"
+          >
+            <nav className="grid gap-2">
+              {menuItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-2xl px-4 py-3 text-sm font-semibold text-cocoa transition hover:bg-blush/35 hover:text-wine"
+                >
+                  {item.label}
+                </a>
+              ))}
               <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-2xl px-4 py-3 text-sm font-semibold text-cocoa transition hover:bg-blush/35 hover:text-wine"
+                href={whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 rounded-2xl bg-wine px-4 py-3 text-center text-sm font-semibold text-white"
               >
-                {item.label}
+                Cotizar por WhatsApp
               </a>
-            ))}
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-2 rounded-2xl bg-wine px-4 py-3 text-center text-sm font-semibold text-white"
-            >
-              Cotizar por WhatsApp
-            </a>
-          </nav>
-        </div>
-      ) : null}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

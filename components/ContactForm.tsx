@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FormEvent, useState } from "react";
+import { motion } from "framer-motion";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 
 type FormData = {
@@ -30,14 +31,24 @@ export default function ContactForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    // Este mensaje se arma automáticamente con lo que escribió la persona.
     const whatsappMessage = `Hola AMORNFLOR, me gustaría solicitar información.\n\nNombre: ${form.name}\nTeléfono: ${form.phone}\nTipo de evento: ${form.eventType}\nFecha estimada: ${form.date}\nMensaje: ${form.message}`;
+
+    // Abre WhatsApp con el mensaje listo para enviar.
     window.open(createWhatsAppLink(whatsappMessage), "_blank");
   }
 
   return (
     <section id="contacto" className="relative bg-white px-4 py-24 sm:px-6 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
-        <div className="fade-in-section relative min-h-[360px] overflow-hidden rounded-[2rem] shadow-floral sm:min-h-[460px] lg:min-h-[540px]">
+        <motion.div
+          initial={{ opacity: 0, x: -24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.65 }}
+          className="relative min-h-[360px] overflow-hidden rounded-[2rem] shadow-floral sm:min-h-[460px] lg:min-h-[540px]"
+        >
+          {/* Imagen de apoyo para que la sección de contacto no se vea vacía. */}
           <Image
             src="/images/gallery/bouquet-fucsia-dorado.jpg"
             alt="Bouquet AMORNFLOR para cotización por WhatsApp"
@@ -51,9 +62,16 @@ export default function ContactForm() {
               Completa tus datos y el formulario abrirá WhatsApp con tu solicitud lista.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="fade-in-section delay-1 rounded-[2rem] border border-goldSoft/20 bg-ivory p-6 shadow-soft sm:p-9">
+        <motion.div
+          initial={{ opacity: 0, x: 24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.65 }}
+          className="rounded-[2rem] border border-goldSoft/20 bg-ivory p-6 shadow-soft sm:p-9"
+        >
+          {/* Este formulario envía la información por WhatsApp. */}
           <p className="text-sm font-semibold uppercase tracking-[0.34em] text-goldSoft">Contacto</p>
           <h2 className="mt-5 font-editorial text-4xl leading-tight text-wine sm:text-5xl">
             Cotiza tu arreglo floral
@@ -128,14 +146,15 @@ export default function ContactForm() {
               />
             </label>
 
-            <button
+            <motion.button
+              whileHover={{ y: -3 }}
               type="submit"
-              className="rounded-full bg-wine px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white shadow-floral transition hover:-translate-y-0.5 hover:bg-cocoa"
+              className="rounded-full bg-wine px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white shadow-floral transition hover:bg-cocoa"
             >
               Enviar por WhatsApp
-            </button>
+            </motion.button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

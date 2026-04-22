@@ -1,10 +1,20 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Concept() {
   return (
     <section id="experiencia" className="relative bg-white px-4 py-24 sm:px-6 lg:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="fade-in-section relative">
+        <motion.div
+          initial={{ opacity: 0, x: -28 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.7 }}
+          className="relative"
+        >
+          {/* Imagen editorial para acompañar el concepto de marca. */}
           <div className="relative h-[560px] overflow-hidden rounded-[2.2rem] shadow-floral">
             <Image
               src="/images/gallery/bouquet-rosado-babys-breath.jpg"
@@ -17,9 +27,15 @@ export default function Concept() {
             <p className="font-editorial text-3xl text-wine">Boutique</p>
             <p className="text-xs uppercase tracking-[0.24em] text-cocoa/50">floral</p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="fade-in-section delay-1">
+        <motion.div
+          initial={{ opacity: 0, x: 28 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.7 }}
+        >
+          {/* Esta sección explica la filosofía de AMORNFLOR. */}
           <p className="text-sm font-semibold uppercase tracking-[0.34em] text-goldSoft">Concepto floral</p>
           <h2 className="mt-5 font-editorial text-4xl leading-tight text-wine sm:text-5xl lg:text-6xl">
             Flores que no solo decoran, también cuentan una historia.
@@ -35,7 +51,7 @@ export default function Concept() {
               Una forma delicada de diseñar momentos que se sienten personales, exclusivos y profundamente memorables.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

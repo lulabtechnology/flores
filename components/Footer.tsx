@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { INSTAGRAM_HANDLE, createWhatsAppLink } from "@/lib/whatsapp";
 
 export default function Footer() {
@@ -12,7 +15,14 @@ export default function Footer() {
       <div className="absolute bottom-[-10rem] left-[-8rem] h-72 w-72 rounded-full bg-goldSoft/20 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="fade-in-section mb-16 rounded-[2.5rem] border border-white/20 bg-white/10 p-8 text-center shadow-floral backdrop-blur sm:p-12">
+        {/* CTA final para llevar al usuario a WhatsApp. */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.65 }}
+          className="mb-16 rounded-[2.5rem] border border-white/20 bg-white/10 p-8 text-center shadow-floral backdrop-blur sm:p-12"
+        >
           <p className="mx-auto max-w-4xl font-editorial text-4xl leading-tight sm:text-5xl lg:text-6xl">
             Diseñemos juntos un recuerdo que florezca para siempre.
           </p>
@@ -24,10 +34,11 @@ export default function Footer() {
           >
             Contactar por WhatsApp
           </a>
-        </div>
+        </motion.div>
 
         <div className="grid gap-10 border-t border-white/20 pt-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
+            {/* Logo de AMORNFLOR en el footer. */}
             <div className="flex items-center gap-4">
               <span className="relative h-14 w-14 overflow-hidden rounded-full border border-white/25 bg-white">
                 <Image src="/images/logo/amornflor-logo.jpg" alt="Logo AMORNFLOR" fill className="object-cover" />

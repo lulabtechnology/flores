@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 type GalleryItem = {
   src: string;
@@ -28,13 +31,12 @@ const gallery: GalleryItem[] = [
     label: "Rosas rojas premium",
     name: "Lady in red",
     text: "El rojo intenso de nuestras rosas premium revela una historia de pasión, romance e intensidad absoluta. Ideal para quienes no temen expresar la fuerza de su amor con audacia y estilo.",
-    featured: true,
   },
   {
     src: "/images/gallery/bouquet-fucsia-dorado.jpg",
     label: "Detalle boutique",
-    name: "Suspiro",
-    text: "Una creación delicada que añade un aire de ensueño y exclusividad.",
+    name: "Suspiro de oro",
+    text: "Donde la pasión del fucsia encuentra la calma del rosa. Este arreglo es un homenaje a la feminidad y el romance, adornado con mariposas doradas que añaden un aire de ensueño y exclusividad.",
   },
   {
     src: "/images/gallery/arreglo-delicado-rosa.jpg",
@@ -46,20 +48,13 @@ const gallery: GalleryItem[] = [
     src: "/images/gallery/ramo-lirios-rojos-amarillos.jpg",
     label: "Ocasión especial",
     name: "Destello",
-    text: "La elegancia vertical de las calas blancas se encuentra con la intensidad de las rosas fucsia en una composición luminosa, fresca y memorable. Un arreglo que destaca al instante y deja una impresión radiante.",
+    text: "La fuerza visual de los tonos amarillos evoca optimismo y energía, mientras que el rojo carmesí de las rosas añade una nota de sofisticación y romance absoluto. Un arreglo que florece y se transforma ante tus ojos.",
   },
   {
     src: "/images/gallery/bouquet-rosas-eucalipto.jpg",
     label: "Bouquet romántico",
     name: "Crónicas de un romance",
     text: "Como una historia de amor escrita entre líneas, este arreglo fusiona la calidez de las rosas color salmón con la frescura etérea del follaje parcifoglia.",
-  },
-  {
-    src: "/images/gallery/opulencia-floral.jpg",
-    label: "Diseño de lujo",
-    name: "Opulencia Floral",
-    text: "Una composición exuberante y sofisticada que une flores premium con un gesto de celebración inolvidable. Ideal para sorprender con presencia, distinción y un aire de auténtico lujo.",
-    featured: true,
   },
   {
     src: "/images/gallery/arreglo-maceta-boutique.jpg",
@@ -72,6 +67,7 @@ export default function Gallery() {
   return (
     <section id="galeria" className="bg-white px-4 py-24 sm:px-6 lg:py-32">
       <div className="mx-auto max-w-7xl">
+        {/* Título de la galería con fotografías reales. */}
         <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.34em] text-goldSoft">Galería</p>
@@ -84,11 +80,16 @@ export default function Gallery() {
           </p>
         </div>
 
+        {/* Esta grilla evita cortes en celular y deja los nombres debajo de cada foto. */}
         <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {gallery.map((item, index) => (
-            <article
-              key={`${item.src}-${item.name ?? item.label}`}
-              className={`fade-in-section overflow-hidden rounded-[2rem] border border-goldSoft/15 bg-ivory shadow-soft ${index % 3 === 1 ? "delay-1" : index % 3 === 2 ? "delay-2" : ""}`}
+            <motion.article
+              key={item.src}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.55, delay: index * 0.04 }}
+              className="overflow-hidden rounded-[2rem] border border-goldSoft/15 bg-ivory shadow-soft"
             >
               <div className={`relative w-full overflow-hidden ${item.featured ? "aspect-[4/5]" : "aspect-[4/4.3]"}`}>
                 <Image
@@ -103,13 +104,14 @@ export default function Gallery() {
               <div className="space-y-4 p-6 sm:p-7">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-goldSoft">{item.label}</p>
 
+                {/* El nombre del arreglo va justo debajo de la foto, en cursiva. */}
                 {item.name ? (
                   <h3 className="font-script text-[2.2rem] leading-none text-wine sm:text-[2.6rem]">{item.name}</h3>
                 ) : null}
 
                 <p className="text-sm leading-7 text-cocoa/75 sm:text-[15px]">{item.text}</p>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
