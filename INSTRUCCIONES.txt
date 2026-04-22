@@ -1,22 +1,31 @@
-CAMBIOS INCLUIDOS EN ESTA CORRECCIÓN
+CAMBIOS INCLUIDOS EN ESTA ENTREGA
 
-1. Se mejoró el hero para celular.
-   - Ahora en móvil se ve primero la foto principal, como gustó visualmente.
-   - La tarjeta de texto ya no se siente cortada.
-   - La frase “Amornflor… la arquitectura de lo efímero” queda mejor acomodada.
-   - Se mantuvieron los mismos colores, estilo premium y pétalos decorativos.
+1. LOGO ACTUALIZADO
+- Se reemplazó el logo del header por el nuevo logo con fondo blanco.
+- También se generó una versión transparente del logo para usarla en el hero.
 
-2. Se ajustó el header para celular.
-   - El logo y el nombre ahora aprovechan mejor el espacio.
-   - “Floristería boutique” ya no se corta tan fácil.
-   - El botón Menú sigue igual, pero el bloque quedó más balanceado.
+2. HERO ACTUALIZADO
+- Se quitó la foto anterior del hero.
+- Ahora el hero usa el logo como imagen principal, con fondo elegante y suave.
+- Se ajustó el texto del hero para que combine con la identidad del logo.
+
+3. GALERÍA ACTUALIZADA
+- “Lady in red” ahora usa la nueva foto de rosas rojas.
+- “Suspiro de oro” fue actualizado a “Suspiro” con su nueva foto y texto más corto.
+- “Destello” ahora usa la nueva foto del arreglo con calas blancas y rosas fucsia.
+- Se agregó un nuevo arreglo llamado “Opulencia Floral” con la foto del arreglo con Moët.
 
 ARCHIVOS MODIFICADOS
 - components/Header.tsx
 - components/Hero.tsx
-- app/globals.css
+- components/Gallery.tsx
+- public/images/logo/amornflor-logo.jpg
+- public/images/logo/amornflor-logo-transparent.png
+- public/images/gallery/rosas-rojas-premium.jpg
+- public/images/gallery/bouquet-fucsia-dorado.jpg
+- public/images/gallery/ramo-lirios-rojos-amarillos.jpg
+- public/images/gallery/opulencia-floral.jpg
 
 QUÉ HACER
-- Reemplaza esos archivos en tu proyecto.
-- Sube los cambios a GitHub.
+- Reemplaza el proyecto por este ZIP o sube estos cambios a tu repositorio.
 - Vuelve a desplegar en Vercel.
