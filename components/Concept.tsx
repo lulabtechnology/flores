@@ -14,11 +14,10 @@ export default function Concept() {
           transition={{ duration: 0.7 }}
           className="relative"
         >
-          {/* Imagen editorial para acompañar el concepto de marca. */}
           <div className="relative h-[560px] overflow-hidden rounded-[2.2rem] shadow-floral">
             <Image
-              src="/images/gallery/bouquet-rosado-babys-breath.jpg"
-              alt="Bouquet rosado AMORNFLOR con diseño romántico"
+              src="/images/concept/introduccion-boutique.jpg"
+              alt="Diseño floral boutique de AMORNFLOR con calas y rosas suaves"
               fill
               className="image-soft object-cover"
             />
@@ -35,7 +34,6 @@ export default function Concept() {
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.7 }}
         >
-          {/* Esta sección explica la filosofía de AMORNFLOR. */}
           <p className="text-sm font-semibold uppercase tracking-[0.34em] text-goldSoft">Concepto floral</p>
           <h2 className="mt-5 font-editorial text-4xl leading-tight text-wine sm:text-5xl lg:text-6xl">
             Flores que no solo decoran, también cuentan una historia.
@@ -45,7 +43,7 @@ export default function Concept() {
           </p>
           <div className="mt-10 rounded-[2rem] border border-goldSoft/25 bg-ivory p-8 shadow-soft">
             <p className="font-editorial text-3xl italic text-wine">
-              “Amornflor… la arquitectura de lo efímero”.
+              “Diseños florales que expresan amor, elegancia y emoción”.
             </p>
             <p className="mt-4 text-sm leading-7 text-cocoa/65">
               Una forma delicada de diseñar momentos que se sienten personales, exclusivos y profundamente memorables.

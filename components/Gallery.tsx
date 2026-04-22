@@ -27,16 +27,16 @@ const gallery: GalleryItem[] = [
     featured: true,
   },
   {
-    src: "/images/gallery/rosas-rojas-premium.jpg",
+    src: "/images/gallery/lady-in-red.jpg",
     label: "Rosas rojas premium",
-    name: "Lady in red",
+    name: "Lady in Red",
     text: "El rojo intenso de nuestras rosas premium revela una historia de pasión, romance e intensidad absoluta. Ideal para quienes no temen expresar la fuerza de su amor con audacia y estilo.",
   },
   {
-    src: "/images/gallery/bouquet-fucsia-dorado.jpg",
+    src: "/images/gallery/suspiro.jpg",
     label: "Detalle boutique",
-    name: "Suspiro de oro",
-    text: "Donde la pasión del fucsia encuentra la calma del rosa. Este arreglo es un homenaje a la feminidad y el romance, adornado con mariposas doradas que añaden un aire de ensueño y exclusividad.",
+    name: "Suspiro",
+    text: "Un arreglo romántico y delicado, adornado con detalles que añaden un aire de ensueño y exclusividad.",
   },
   {
     src: "/images/gallery/arreglo-delicado-rosa.jpg",
@@ -67,7 +67,6 @@ export default function Gallery() {
   return (
     <section id="galeria" className="bg-white px-4 py-24 sm:px-6 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        {/* Título de la galería con fotografías reales. */}
         <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.34em] text-goldSoft">Galería</p>
@@ -80,7 +79,6 @@ export default function Gallery() {
           </p>
         </div>
 
-        {/* Esta grilla evita cortes en celular y deja los nombres debajo de cada foto. */}
         <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {gallery.map((item, index) => (
             <motion.article
@@ -103,12 +101,9 @@ export default function Gallery() {
 
               <div className="space-y-4 p-6 sm:p-7">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-goldSoft">{item.label}</p>
-
-                {/* El nombre del arreglo va justo debajo de la foto, en cursiva. */}
                 {item.name ? (
                   <h3 className="font-script text-[2.2rem] leading-none text-wine sm:text-[2.6rem]">{item.name}</h3>
                 ) : null}
-
                 <p className="text-sm leading-7 text-cocoa/75 sm:text-[15px]">{item.text}</p>
               </div>
             </motion.article>

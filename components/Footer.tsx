@@ -15,7 +15,6 @@ export default function Footer() {
       <div className="absolute bottom-[-10rem] left-[-8rem] h-72 w-72 rounded-full bg-goldSoft/20 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
-        {/* CTA final para llevar al usuario a WhatsApp. */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,10 +37,14 @@ export default function Footer() {
 
         <div className="grid gap-10 border-t border-white/20 pt-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
-            {/* Logo de AMORNFLOR en el footer. */}
             <div className="flex items-center gap-4">
-              <span className="relative h-14 w-14 overflow-hidden rounded-full border border-white/25 bg-white">
-                <Image src="/images/logo/amornflor-logo.jpg" alt="Logo AMORNFLOR" fill className="object-cover" />
+              <span className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-white/25 bg-white">
+                <Image
+                  src="/images/logo/amornflor-logo-clean.png"
+                  alt="Logo AMORNFLOR"
+                  fill
+                  className="object-contain p-1.5"
+                />
               </span>
               <div>
                 <p className="font-editorial text-2xl tracking-[0.18em]">AMORNFLOR</p>
@@ -59,7 +62,7 @@ export default function Footer() {
               WhatsApp: (507) 6059 8292
             </a>
             <p className="mt-3 text-white/80">Instagram: {INSTAGRAM_HANDLE}</p>
-            <p className="mt-3 text-white/80">Sitio web: xxxxxxxxxxx</p>
+            <p className="mt-3 text-white/80">Sitio web: flores-one.vercel.app</p>
             <p className="mt-3 text-white/80">Colón, República de Panamá</p>
           </div>
 

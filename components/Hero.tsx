@@ -7,7 +7,7 @@ import { createWhatsAppLink } from "@/lib/whatsapp";
 const contactItems = [
   "(507) 6059 8292",
   "@amornflor",
-  "Sitio web: xxxxxxxxxxx",
+  "Sitio web: flores-one.vercel.app",
   "Colón, República de Panamá",
 ];
 
@@ -21,11 +21,9 @@ export default function Hero() {
       id="inicio"
       className="relative overflow-hidden bg-premium-glow px-4 pb-20 pt-28 sm:px-6 sm:pt-32 lg:pt-40"
     >
-      {/* Brillos suaves del fondo para que el hero se sienta premium. */}
       <div className="absolute left-[-10rem] top-20 h-72 w-72 rounded-full bg-blush/40 blur-3xl" />
       <div className="absolute bottom-20 right-[-8rem] h-80 w-80 rounded-full bg-goldSoft/20 blur-3xl" />
 
-      {/* Pétalos decorativos con movimiento suave. */}
       <motion.span
         className="petal absolute left-[8%] top-28"
         animate={{ y: [0, 18, 0], rotate: [8, 22, 8] }}
@@ -53,14 +51,12 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto grid max-w-7xl items-start gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-12">
-        {/* En celular mostramos primero la imagen para conservar la sensación visual que gustó. */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 24 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
           className="relative order-1 lg:order-2"
         >
-          {/* La imagen principal muestra uno de los arreglos más fuertes de AMORNFLOR. */}
           <div className="relative mx-auto aspect-[4/5] w-full max-w-[620px] overflow-hidden rounded-[2rem] border border-white/80 bg-white p-3 shadow-floral sm:aspect-[5/6] sm:rounded-[2.5rem] lg:ml-auto">
             <Image
               src="/images/hero/rosas-rosadas-premium.jpg"
@@ -70,7 +66,6 @@ export default function Hero() {
               className="image-soft rounded-[1.6rem] object-cover sm:rounded-[2rem]"
             />
 
-            {/* Esta capa oscura ayuda a que el texto se lea bien en celular y escritorio. */}
             <div className="absolute inset-x-3 bottom-3 rounded-b-[1.6rem] bg-gradient-to-t from-wine/65 via-wine/25 to-transparent p-4 text-left text-white sm:rounded-b-[2rem] sm:p-8">
               <p className="font-script text-[2.2rem] leading-none sm:text-4xl">Amándote más</p>
               <p className="mt-3 max-w-md text-base leading-7 text-white/92 sm:text-base sm:leading-7">
@@ -79,14 +74,13 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Tarjeta pequeña con la frase de la marca. En celular queda debajo de la foto para que no se corte. */}
           <motion.div
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-            className="mt-5 rounded-[2rem] border border-goldSoft/30 bg-white/90 p-5 shadow-floral backdrop-blur md:absolute md:-bottom-8 md:left-8 md:mt-0 md:max-w-[300px]"
+            className="mt-5 rounded-[2rem] border border-goldSoft/30 bg-white/90 p-5 shadow-floral backdrop-blur md:absolute md:-bottom-8 md:left-8 md:mt-0 md:max-w-[320px]"
           >
             <p className="font-editorial text-2xl italic leading-tight text-wine sm:text-3xl md:text-2xl">
-              “Amornflor… la arquitectura de lo efímero”.
+              “Flores diseñadas para convertir instantes en recuerdos inolvidables”.
             </p>
             <div className="gold-line mt-4 h-px w-full" />
             <p className="mt-3 text-xs uppercase tracking-[0.26em] text-cocoa/55">AMORNFLOR</p>
@@ -99,15 +93,24 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="order-2 text-center lg:order-1 lg:text-left"
         >
-          {/* El nombre de la marca aparece como la primera palabra fuerte del contenido principal. */}
+          <div className="mb-5 flex justify-center lg:justify-start">
+            <span className="relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-full border border-goldSoft/30 bg-white shadow-soft sm:h-24 sm:w-24">
+              <Image
+                src="/images/logo/amornflor-logo-clean.png"
+                alt="Logo floral de AMORNFLOR"
+                fill
+                className="object-contain p-2"
+                priority
+              />
+            </span>
+          </div>
+
           <h1 className="font-editorial text-[2.7rem] leading-[0.95] tracking-[0.14em] text-wine sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
             AMORNFLOR
           </h1>
 
-          {/* Este subtítulo queda justo debajo del nombre de la marca. */}
           <p className="mt-2 font-script text-3xl text-roseDust sm:text-5xl">Floristería boutique</p>
 
-          {/* Aquí se muestran los datos de contacto pedidos por la cliente. */}
           <div className="mx-auto mt-6 grid max-w-2xl gap-3 text-sm leading-7 text-cocoa/75 sm:grid-cols-2 lg:mx-0">
             {contactItems.map((item) => (
               <p
@@ -127,7 +130,6 @@ export default function Hero() {
             Somos inspiración floral que satisface el gusto más exigente y exclusivo.
           </p>
 
-          {/* Botones principales del hero. */}
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
             <motion.a
               whileHover={{ y: -3 }}
