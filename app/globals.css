@@ -74,3 +74,80 @@ section {
     scroll-margin-top: 116px;
   }
 }
+
+
+/* Animaciones suaves sin dependencias extras. */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.12s;
+}
+
+.delay-2 {
+  animation-delay: 0.24s;
+}
+
+.floating-card {
+  animation: floatSoft 5.5s ease-in-out infinite;
+}
+
+.petal-one {
+  animation: petalFloatOne 7s ease-in-out infinite;
+}
+
+.petal-two {
+  animation: petalFloatTwo 6.8s ease-in-out infinite;
+}
+
+.petal-three {
+  animation: petalFloatThree 8s ease-in-out infinite;
+}
+
+.petal-four {
+  animation: petalFloatFour 7.4s ease-in-out infinite;
+}
+
+.petal-five {
+  animation: petalFloatFive 6.5s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes petalFloatOne {
+  0%, 100% { transform: translateY(0) rotate(8deg); }
+  50% { transform: translateY(18px) rotate(22deg); }
+}
+
+@keyframes petalFloatTwo {
+  0%, 100% { transform: translateY(0) rotate(-14deg); }
+  50% { transform: translateY(-12px) rotate(8deg); }
+}
+
+@keyframes petalFloatThree {
+  0%, 100% { transform: translateY(0) rotate(-20deg); }
+  50% { transform: translateY(-18px) rotate(-4deg); }
+}
+
+@keyframes petalFloatFour {
+  0%, 100% { transform: translateY(0) rotate(18deg); }
+  50% { transform: translateY(14px) rotate(34deg); }
+}
+
+@keyframes petalFloatFive {
+  0%, 100% { transform: translateY(0) rotate(40deg); }
+  50% { transform: translateY(14px) rotate(58deg); }
+}

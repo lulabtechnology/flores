@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 
@@ -74,37 +73,30 @@ export default function Header() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="mx-auto mt-3 max-w-7xl rounded-3xl border border-white/70 bg-white/95 p-4 shadow-floral backdrop-blur-xl lg:hidden"
-          >
-            <nav className="grid gap-2">
-              {menuItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-2xl px-4 py-3 text-sm font-semibold text-cocoa transition hover:bg-blush/35 hover:text-wine"
-                >
-                  {item.label}
-                </a>
-              ))}
+      {open ? (
+        <div className="fade-in-section mx-auto mt-3 max-w-7xl rounded-3xl border border-white/70 bg-white/95 p-4 shadow-floral backdrop-blur-xl lg:hidden">
+          <nav className="grid gap-2">
+            {menuItems.map((item) => (
               <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 rounded-2xl bg-wine px-4 py-3 text-center text-sm font-semibold text-white"
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="rounded-2xl px-4 py-3 text-sm font-semibold text-cocoa transition hover:bg-blush/35 hover:text-wine"
               >
-                Cotizar por WhatsApp
+                {item.label}
               </a>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 rounded-2xl bg-wine px-4 py-3 text-center text-sm font-semibold text-white"
+            >
+              Cotizar por WhatsApp
+            </a>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }

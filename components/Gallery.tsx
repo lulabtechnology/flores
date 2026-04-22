@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 type GalleryItem = {
   src: string;
@@ -89,13 +86,9 @@ export default function Gallery() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {gallery.map((item, index) => (
-            <motion.article
+            <article
               key={`${item.src}-${item.name ?? item.label}`}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.55, delay: index * 0.04 }}
-              className="overflow-hidden rounded-[2rem] border border-goldSoft/15 bg-ivory shadow-soft"
+              className={`fade-in-section overflow-hidden rounded-[2rem] border border-goldSoft/15 bg-ivory shadow-soft ${index % 3 === 1 ? "delay-1" : index % 3 === 2 ? "delay-2" : ""}`}
             >
               <div className={`relative w-full overflow-hidden ${item.featured ? "aspect-[4/5]" : "aspect-[4/4.3]"}`}>
                 <Image
@@ -116,7 +109,7 @@ export default function Gallery() {
 
                 <p className="text-sm leading-7 text-cocoa/75 sm:text-[15px]">{item.text}</p>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 
 const contactItems = [
@@ -24,39 +23,14 @@ export default function Hero() {
       <div className="absolute left-[-10rem] top-20 h-72 w-72 rounded-full bg-blush/40 blur-3xl" />
       <div className="absolute bottom-20 right-[-8rem] h-80 w-80 rounded-full bg-goldSoft/20 blur-3xl" />
 
-      <motion.span
-        className="petal absolute left-[8%] top-28"
-        animate={{ y: [0, 18, 0], rotate: [8, 22, 8] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.span
-        className="petal absolute left-[16%] top-40 hidden sm:block"
-        animate={{ y: [0, -12, 0], rotate: [-14, 8, -14] }}
-        transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.span
-        className="petal absolute right-[10%] top-28"
-        animate={{ y: [0, -18, 0], rotate: [-20, -4, -20] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.span
-        className="petal absolute right-[18%] top-44 hidden sm:block"
-        animate={{ y: [0, 14, 0], rotate: [18, 34, 18] }}
-        transition={{ duration: 7.4, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.span
-        className="petal absolute bottom-28 left-[40%] hidden bg-roseDust/70 md:block"
-        animate={{ y: [0, 14, 0], rotate: [40, 58, 40] }}
-        transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
-      />
+      <span className="petal petal-one absolute left-[8%] top-28" />
+      <span className="petal petal-two absolute left-[16%] top-40 hidden sm:block" />
+      <span className="petal petal-three absolute right-[10%] top-28" />
+      <span className="petal petal-four absolute right-[18%] top-44 hidden sm:block" />
+      <span className="petal petal-five absolute bottom-28 left-[40%] hidden bg-roseDust/70 md:block" />
 
       <div className="relative mx-auto grid max-w-7xl items-start gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-12">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 24 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
-          className="relative order-1 lg:order-2"
-        >
+        <div className="fade-in-section relative order-1 lg:order-2">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-[620px] overflow-hidden rounded-[2rem] border border-white/80 bg-white/70 p-3 shadow-floral sm:aspect-[5/6] sm:rounded-[2.5rem] lg:ml-auto">
             <div className="relative h-full w-full overflow-hidden rounded-[1.6rem] bg-[radial-gradient(circle_at_top,_rgba(247,205,216,0.75),_rgba(255,255,255,0.96)_50%,_rgba(255,250,243,1)_100%)] sm:rounded-[2rem]">
               <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.75),rgba(255,250,243,0.92),rgba(247,205,216,0.35))]" />
@@ -84,25 +58,16 @@ export default function Hero() {
             </div>
           </div>
 
-          <motion.div
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-            className="mt-5 rounded-[2rem] border border-goldSoft/30 bg-white/90 p-5 shadow-floral backdrop-blur md:absolute md:-bottom-8 md:left-8 md:mt-0 md:max-w-[300px]"
-          >
+          <div className="floating-card mt-5 rounded-[2rem] border border-goldSoft/30 bg-white/90 p-5 shadow-floral backdrop-blur md:absolute md:-bottom-8 md:left-8 md:mt-0 md:max-w-[300px]">
             <p className="font-editorial text-2xl italic leading-tight text-wine sm:text-3xl md:text-2xl">
               “Amornflor… la arquitectura de lo efímero”.
             </p>
             <div className="gold-line mt-4 h-px w-full" />
             <p className="mt-3 text-xs uppercase tracking-[0.26em] text-cocoa/55">AMORNFLOR</p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="order-2 text-center lg:order-1 lg:text-left"
-        >
+        <div className="fade-in-section delay-1 order-2 text-center lg:order-1 lg:text-left">
           <h1 className="font-editorial text-[2.7rem] leading-[0.95] tracking-[0.14em] text-wine sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
             AMORNFLOR
           </h1>
@@ -129,24 +94,22 @@ export default function Hero() {
           </p>
 
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
-            <motion.a
-              whileHover={{ y: -3 }}
+            <a
               href={whatsappLink}
               target="_blank"
               rel="noreferrer"
-              className="rounded-full bg-wine px-8 py-4 text-center text-sm font-bold uppercase tracking-[0.18em] text-white shadow-floral transition hover:bg-cocoa"
+              className="rounded-full bg-wine px-8 py-4 text-center text-sm font-bold uppercase tracking-[0.18em] text-white shadow-floral transition hover:-translate-y-0.5 hover:bg-cocoa"
             >
               Cotizar arreglo floral
-            </motion.a>
-            <motion.a
-              whileHover={{ y: -3 }}
+            </a>
+            <a
               href="#galeria"
-              className="rounded-full border border-goldSoft/40 bg-white/80 px-8 py-4 text-center text-sm font-bold uppercase tracking-[0.18em] text-wine shadow-soft transition hover:border-wine/40 hover:bg-white"
+              className="rounded-full border border-goldSoft/40 bg-white/80 px-8 py-4 text-center text-sm font-bold uppercase tracking-[0.18em] text-wine shadow-soft transition hover:-translate-y-0.5 hover:border-wine/40 hover:bg-white"
             >
               Ver galería
-            </motion.a>
+            </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
