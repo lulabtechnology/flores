@@ -50,7 +50,7 @@ export default function ContactForm() {
         >
           {/* Imagen de apoyo para que la sección de contacto no se vea vacía. */}
           <Image
-            src="/images/gallery/bouquet-fucsia-dorado.jpg"
+            src="/images/contact/contacto-rojas.jpg"
             alt="Bouquet AMORNFLOR para cotización por WhatsApp"
             fill
             className="image-soft object-cover"
@@ -58,9 +58,7 @@ export default function ContactForm() {
           <div className="absolute inset-0 bg-gradient-to-t from-wine/75 via-wine/10 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white sm:p-8">
             <p className="font-editorial text-3xl leading-tight sm:text-4xl">Diseños para regalar, celebrar y emocionar.</p>
-            <p className="mt-4 max-w-md text-sm leading-7 text-white/80">
-              Completa tus datos y el formulario abrirá WhatsApp con tu solicitud lista.
-            </p>
+
           </div>
         </motion.div>
 
